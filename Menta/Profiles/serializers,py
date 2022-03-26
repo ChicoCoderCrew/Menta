@@ -10,8 +10,3 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
             'id', 'firstName', 'lastName', 'userType', 'occupation', 'website', 'age'
             , 'gender', 'biography', 'photos'
         )
-
-        
-
-
-
