@@ -1,47 +1,19 @@
-import re
 from django.shortcuts import render
-from django.http import HttpResponse, response
 from .models import Profile
-#from .serializers  import ProfileSerializer
-import json
-from django.core import serializers
 from django.http import JsonResponse
-from rest_framework import viewsets
 
-# Create your views here.
-
-def something(request):
-    #save a profile
-    # newProfile = Profile(firstName='n00b', userType='Mentee', age= 0, gender= 'Other', biography= 'i like to hack, and sack.')
-    # newProfile.save()
-
-    #retrieve an object
-    # Profile.objects
-    # pulledProfile = Profile(firstName= 'n00b')
-    # pulledProfile.objects
-
-    #print (request)
-    #print(request.path)
+def user_view(request):
     proId = request.GET['id']
-    # print(myPro)
-    # print(response.GET == myPro)
-    #retrieve all objects
-    #allProfiles = Profile.objects.all()
-    # content = "<html><body><h1>%s %s</h1><p>You're a %s </p></body></html>" % (allProfiles[0].firstName, allProfiles[0].lastName, allProfiles[0].userType) 
-    #content = "<html><body><h1>" + allProfiles[0].firstName + " " + allProfiles[0].lastName + "</h1><p>You're a " + allProfiles[0].userType + "</p></body></html>" 
-    # content = "<html><body><h1>{} {}</h1><p>You're a {} </p></body></html>".format(allProfiles[0].firstName, allProfiles[0].lastName, allProfiles[0].userType) 
-    
     person = Profile.objects.get(pk=proId)
     content = { 
         "id" : person.id,
-        "firstName": person.firstName,
-        "lastName" : person.lastName,
+        "name": " ".join([person.firstName, person.lastName]),
         "userType" : person.userType,
         "occupation": person.occupation,
         "website" : person.website,
         "age" : person.age,
         "gender" : person.gender,
-        "biography" : person.biography,
+        "bio" : person.biography,
         #"photos" : person.photos,
         "skills": [
             "Javascript",
@@ -49,16 +21,4 @@ def something(request):
         ]
     }
 
-    # print(person)
-    # one_entry = person
-    #list_result = [entry for entry in one_entry]
-    #json_string = json.dumps(list_result)     
-    # return JsonResponse(person)
-    #return person
-
     return JsonResponse(content)
-  
-#class ProfileViewSet(viewsets.ModelViewSet):
-    
-
-    
