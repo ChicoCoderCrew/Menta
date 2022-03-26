@@ -28,7 +28,7 @@ class Profile(models.Model):
 
     biography= models.TextField(verbose_name='Personal Bio', max_length=2000)
 
-    photos= models.ImageField(verbose_name='Headshot')
+    photos= models.URLField(verbose_name='Headshot URL')
 
 
 class Skill(models.Model):
