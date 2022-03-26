@@ -31,9 +31,9 @@ def get_user(request):
     # content = "<html><body><h1>{} {}</h1><p>You're a {} </p></body></html>".format(allProfiles[0].firstName, allProfiles[0].lastName, allProfiles[0].userType) 
     return HttpResponse(content)
   
-class ProfileViewSet(viewsets.ModelViewSet):
-  queryset = Profile.objects.all().order_by('firstName')
-  # serializer_class = ProfileSerializer
+# class ProfileViewSet(viewsets.ModelViewSet):
+#   queryset = Profile.objects.all().order_by('firstName')
+#   # serializer_class = ProfileSerializer
 
 
 
@@ -43,8 +43,9 @@ class ProfileViewSet(viewsets.ModelViewSet):
 
 #save a profile
 def saveProfile(request):
-  profToSave = Profile.objects.get(Profile(firstName='n00b', userType='Mentee', age= 0, gender= 'Other', biography= 'i like to hack, and sack.'))
+  profToSave = Profile(firstName='n00b', userType='Mentee', age= 0, gender= 'Other', biography= 'i like to hack, and sack.')
   profToSave.save()
+  return HttpResponse(profToSave)
 
 
 # #save a profile
