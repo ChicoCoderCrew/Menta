@@ -1,5 +1,6 @@
+import re
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, response
 from .models import Profile
 #from .serializers  import ProfileSerializer
 import json
@@ -19,13 +20,18 @@ def something(request):
     # pulledProfile = Profile(firstName= 'n00b')
     # pulledProfile.objects
 
+    #print (request)
+    #print(request.path)
+    proId = request.GET['id']
+    # print(myPro)
+    # print(response.GET == myPro)
     #retrieve all objects
     #allProfiles = Profile.objects.all()
     # content = "<html><body><h1>%s %s</h1><p>You're a %s </p></body></html>" % (allProfiles[0].firstName, allProfiles[0].lastName, allProfiles[0].userType) 
     #content = "<html><body><h1>" + allProfiles[0].firstName + " " + allProfiles[0].lastName + "</h1><p>You're a " + allProfiles[0].userType + "</p></body></html>" 
     # content = "<html><body><h1>{} {}</h1><p>You're a {} </p></body></html>".format(allProfiles[0].firstName, allProfiles[0].lastName, allProfiles[0].userType) 
     
-    person = Profile.objects.get(firstName='Parth')
+    person = Profile.objects.get(pk=proId)
     content = { 
         "id" : person.id,
         "firstName": person.firstName,
