@@ -1,4 +1,4 @@
-from multiprocessing import Profile
+#from django.contrib import Profile
 from django.contrib import admin
 from .models import *
 
