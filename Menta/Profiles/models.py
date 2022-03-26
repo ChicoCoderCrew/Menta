@@ -30,14 +30,16 @@ class Profile(models.Model):
 
     photos= models.ImageField(verbose_name='Headshot')
 
-# #save a profile
-# newProfile = Profile(firstName='n00b', userType='Mentee', age= 0, gender= 'Other', biography= 'i like to hack, and sack.')
-# newProfile.save()
 
-# #retrieve an object
-# Profile.objects
-# pulledProfile = Profile(firstName= 'n00b')
-# pulledProfile.objects
+class Skill(models.Model):
+    profile= models.ForeignKey(Profile, on_delete=models.CASCADE, null= True)
 
-# #retrieve all objects
-# allProfiles = Profile.objects.get()
+    skillName= models.CharField(verbose_name='Skill', max_length=100)
+
+    SKILL_CHOICES = [
+        ('B', 'Beginner'),
+        ('I', 'Intermediate'),
+        ('E', 'Expert'),
+    ]
+    level= models.CharField(verbose_name='Proficiency', choices= SKILL_CHOICES, max_length=100, default= 'B')
+
