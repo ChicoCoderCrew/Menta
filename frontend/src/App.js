@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/home";
@@ -47,6 +47,10 @@ function App() {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   const [pathName, setPathName] = useState("");
+
+  useEffect(() => {
+    setPathName(window.location.pathname.split("/")[1]);
+  }, [window.location.pathname]);
 
   return (
     <MentaContext.Provider
