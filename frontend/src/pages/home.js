@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { colorScheme } from "../theme";
 
@@ -9,6 +9,8 @@ const Home = () => {
     console.log(ID);
     navigate("./profile", { state: { id: ID } });
   };
+  useEffect(() => {}, []);
+
   return (
     <div>
       <h1 style={{ margin: 0 }}>Welcome to Menta!</h1>

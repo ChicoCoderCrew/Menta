@@ -20,19 +20,32 @@ const Profile = () => {
   // "Javascript",
   // "C++"
   // ]
-  let headersList = {
-    Accept: "*/*",
-  };
+
+  let headers = new Headers();
+
+  headers.append("Content-Type", "application/json");
+  headers.append("Accept", "application/json");
+  // headers.append("Access-Control-Allow-Origin", "*");
+  // headers.append("Origin", "http://localhost:3000");
 
   useEffect(() => {
-    if (state.id) {
-      axios
-        .get(`http://34.132.172.130/user/view/${state.id}`)
-        .then(function (response) {
-          console.log(response.data);
-          setUser(response.data);
-        })
-        .catch((e) => console.log(e));
+    if (state) {
+      try {
+        axios
+          .get(`http://34.132.172.130/user/view/${state.id}`, {
+            headers,
+          })
+          .then(function (response) {
+            console.log(response.data);
+            setUser(response.data);
+          })
+          .catch((e) => {
+            console.log(e);
+            navigate("/");
+          });
+      } catch (e) {
+        navigate("/");
+      }
     } else {
       navigate("/");
     }
