@@ -2,8 +2,8 @@ from django.shortcuts import render
 from .models import Profile
 from django.http import JsonResponse
 
-def user_view(request):
-    proId = request.GET['id']
+def user_view(request, id):
+    proId = id
     person = Profile.objects.get(pk=proId)
     content = { 
         "id" : person.id,
