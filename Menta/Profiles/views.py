@@ -41,22 +41,20 @@ def get_user(request):
 #   # serializer_class = ProfileSerializer
 
 
-
-# #retrieve all objects
-# def getAllProf(request):
-#   allProf = Profile.objects.all.order_by(pk)
-
 #save a profile
 def saveProfile(request):
   profToSave = Profile(firstName='n00b', userType='Mentee', age= 0, gender= 'Other', biography= 'i like to hack, and sack.')
   profToSave.save()
   return HttpResponse(profToSave)
 
+# retrieve all objects
+def getAllProf(request):
+  all_entries = Profile.objects.all()
+  querylist = " "
+  for x in all_entries:
+    querylist += "<html><body><p>" + str(x.pk) + " " + x.firstName + " " + x.lastName + " " + x.userType + " " + x.occupation + " " + x.website + " " + str(x.age) + " " + x.gender + " " + "</p></body></html>"
+  return HttpResponse(querylist)
 
-# #save a profile
-# def createProfile(request):
-#   newProfile = Profile(firstName='n00b', userType='Mentee', age= 0, gender= 'Other', biography= 'i like to hack, and sack.')
-#   newProfile.save()
 
 # #retrieve an object
 # def getProfile(request):
