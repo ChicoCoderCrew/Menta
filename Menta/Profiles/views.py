@@ -52,6 +52,15 @@ def saveProfile(request):
   profToSave.save()
   return HttpResponse(profToSave)
 
+# retrieve all objects
+def getAllProf(request):
+  all_entries = Profile.objects.all()
+  querylist = " "
+  for x in all_entries:
+    querylist += "<html><body><p>" + x.firstName + " " + x.lastName + " " + x.userType + " " + x.occupation + " " + x.website + " " + str(x.age) + " " + x.gender + " " + "</p></body></html>"
+  return HttpResponse(querylist)
+
+
 
 # #save a profile
 # def createProfile(request):
