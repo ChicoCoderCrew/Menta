@@ -22,6 +22,6 @@ def something(request):
     # content = "<html><body><h1>{} {}</h1><p>You're a {} </p></body></html>".format(allProfiles[0].firstName, allProfiles[0].lastName, allProfiles[0].userType) 
     return HttpResponse(content)
   
-  class ProfileViewSet(viewsets.ModelViewSet):
-    queryset = Profile.objects.all().order_by('name')
-    # serializer_class = ProfileSerializer
+class ProfileViewSet(viewsets.ModelViewSet):
+  queryset = Profile.objects.all().order_by('firstName')
+  # serializer_class = ProfileSerializer
