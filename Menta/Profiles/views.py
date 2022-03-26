@@ -5,6 +5,13 @@ from django.http import JsonResponse, HttpResponse
 def user_view(request, id):
     proId = id
     person = Profile.objects.get(pk=proId)
+
+    result_list = list(person.skills.values('skillName', 'level'))
+    
+    skillList=[]
+    for x in result_list:
+        skillList.append(x['skillName'])
+    
     content = { 
         "id" : person.id,
         "name": " ".join([person.firstName, person.lastName]),
@@ -15,13 +22,11 @@ def user_view(request, id):
         "gender" : person.gender,
         "bio" : person.biography,
         #"photos" : person.photos,
-        "skills": [
-            "Javascript",
-            "C++"
-        ]
+        "skills": skillList
     }
 
     return JsonResponse(content)
+    
 def get_user(request):
 
     #retrieve all objects
