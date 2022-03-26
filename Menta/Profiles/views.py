@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Profile
+from rest_framework import viewsets
 
 # Create your views here.
+
 def something(request):
     #save a profile
     # newProfile = Profile(firstName='n00b', userType='Mentee', age= 0, gender= 'Other', biography= 'i like to hack, and sack.')
@@ -19,3 +21,7 @@ def something(request):
     content = "<html><body><h1>" + allProfiles[0].firstName + " " + allProfiles[0].lastName + "</h1><p>You're a " + allProfiles[0].userType + "</p></body></html>" 
     # content = "<html><body><h1>{} {}</h1><p>You're a {} </p></body></html>".format(allProfiles[0].firstName, allProfiles[0].lastName, allProfiles[0].userType) 
     return HttpResponse(content)
+  
+  class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all().order_by('name')
+    # serializer_class = ProfileSerializer
