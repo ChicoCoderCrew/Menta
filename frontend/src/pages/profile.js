@@ -32,9 +32,7 @@ const Profile = () => {
     if (state) {
       try {
         axios
-          .get(`http://34.132.172.130/user/view/${state.id}`, {
-            headers,
-          })
+          .get(`http://34.132.172.130/user/view/${state.id}`)
           .then(function (response) {
             console.log(response.data);
             setUser(response.data);
@@ -67,7 +65,7 @@ const Profile = () => {
             // alignItems: "flex-start",
           }}>
           <img
-            src="https://picsum.photos/seed/random/200/200"
+            src={`https://picsum.photos/seed/${user.id}/200/200`}
             alt="Girl in a jacket"
             width="100"
             height="100"
