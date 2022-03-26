@@ -40,4 +40,4 @@ class Profile(models.Model):
 # pulledProfile.objects
 
 # #retrieve all objects
-# allProfiles = Profile.objects.all()
+# allProfiles = Profile.objects.get()
