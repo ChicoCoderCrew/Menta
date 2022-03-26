@@ -43,3 +43,5 @@ class Profile(models.Model):
     photos= models.URLField(verbose_name='Headshot URL')
 
     skills = models.ManyToManyField(Skill)
+
+    contact= models.EmailField(verbose_name= 'Contact Email', max_length=100, null=False)
