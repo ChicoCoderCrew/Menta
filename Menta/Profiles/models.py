@@ -2,6 +2,18 @@ from django.db import models
 
 # Create your models here.
 
+class Skill(models.Model):
+   
+    skillName= models.CharField(verbose_name='Skill', max_length=100)
+
+    SKILL_CHOICES = [
+        ('B', 'Beginner'),
+        ('I', 'Intermediate'),
+        ('E', 'Expert'),
+    ]
+    level= models.CharField(verbose_name='Proficiency', choices= SKILL_CHOICES, max_length=100, default= 'B')
+
+
 class Profile(models.Model):
 
     firstName= models.CharField(verbose_name= 'First Name', max_length=100)
@@ -30,16 +42,4 @@ class Profile(models.Model):
 
     photos= models.URLField(verbose_name='Headshot URL')
 
-
-class Skill(models.Model):
-    profile= models.ForeignKey(Profile, on_delete=models.CASCADE, null= True)
-
-    skillName= models.CharField(verbose_name='Skill', max_length=100)
-
-    SKILL_CHOICES = [
-        ('B', 'Beginner'),
-        ('I', 'Intermediate'),
-        ('E', 'Expert'),
-    ]
-    level= models.CharField(verbose_name='Proficiency', choices= SKILL_CHOICES, max_length=100, default= 'B')
-
+    skills = models.ManyToManyField(Skill)

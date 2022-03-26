@@ -4,9 +4,6 @@ from .models import *
 
 # Register your models here.
 
-
-#admin.site.register(Skill)
-
 class SkillInline(admin.StackedInline):
     model = Skill
 
@@ -14,5 +11,7 @@ class ProfileAdmin(admin.ModelAdmin):
     inlines = [
         SkillInline,
     ]
-admin.site.register(Profile, ProfileAdmin)
-# admin.site.register(Post, PostAdmin)
+
+admin.site.register(Profile)
+
+# admin.site.register(Profile, ProfileAdmin)
