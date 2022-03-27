@@ -52,7 +52,7 @@ def getAllProf(request):
   all_entries = Profile.objects.all()
   querylist = " "
   for x in all_entries:
-    querylist += "<html><body><p>" + str(x.pk) + " " + x.firstName + " " + x.lastName + " " + x.userType + " " + x.occupation + " " + x.website + " " + str(x.age) + " " + x.gender + " " + "</p></body></html>"
+    querylist += "<html><body><p>" + str(x.pk) + " " + x.firstName + " " + x.lastName + " " + x.userType + " " + x.occupation + " " + x.website + " " + str(x.age) + " " + x.gender + " " + x.contact + "</p></body></html>"
   return HttpResponse(querylist)
 
 
