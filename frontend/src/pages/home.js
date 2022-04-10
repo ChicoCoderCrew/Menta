@@ -4,6 +4,7 @@ import { colorScheme } from "../theme";
 import Input from '../components/atoms/input';
 import SimpleForm from '../components/atoms/simpleForm';
 import Button from '../components/atoms/button';
+import Cta from '../components/atoms/cta';
 
 const Home = () => {
   const [ID, setID] = useState(null);
@@ -26,15 +27,19 @@ const Home = () => {
               name="ID"
               placeholder="Enter your ID"
               id="menta-id"
-              extraClass="p-2"
+              extraClass="py-2"
             />
             <Button
               type="submit"
               onClick={handleSubmit}
-              buttonText="Go"
               extraClass="px-6 py-4 text-lg"
-            />
+            >
+              Go
+            </Button>
           </SimpleForm>
+          {/* <Cta
+            onClick={handleSubmit}
+          /> */}
       </div>
     </div>
   );
