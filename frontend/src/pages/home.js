@@ -37,9 +37,6 @@ const Home = () => {
               Go
             </Button>
           </SimpleForm>
-          {/* <Cta
-            onClick={handleSubmit}
-          /> */}
       </div>
     </div>
   );

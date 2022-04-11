@@ -11,7 +11,7 @@ export default function Button({
   type="button",
   onClick,
   children,
-  extraClass,
+  extraClass ="px-4 py-2",
 }: Props) {
   return (
   <button

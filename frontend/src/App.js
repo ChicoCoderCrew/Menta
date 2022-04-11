@@ -59,7 +59,7 @@ function App() {
         state,
         dispatch,
       }}>
-      <main className="bg-stone-800">
+      <main className="bg-stone-800 text-white m-0">
         <div className="App">
           <BrowserRouter>
             <div
