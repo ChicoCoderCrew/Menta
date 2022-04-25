@@ -8,13 +8,10 @@ class SkillInline(admin.StackedInline):
     model = Skill
 
 class ProfileAdmin(admin.ModelAdmin):
-    inlines = [
-        SkillInline,
-    ]
+    list_filter = ('userType', 'gender', 'age')
+    list_display = ('firstName', 'lastName', 'userType', 'occupation')
 
-admin.site.register(Profile)
+
+admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Skill)
 
-
-
-# admin.site.register(Profile, ProfileAdmin)

@@ -13,6 +13,8 @@ class Skill(models.Model):
     ]
     level= models.CharField(verbose_name='Proficiency', choices= SKILL_CHOICES, max_length=100, default= 'B')
 
+    def __str__(self):
+        return '{}'.format(self.skillName)
 
 class Profile(models.Model):
 
@@ -45,3 +47,6 @@ class Profile(models.Model):
     skills = models.ManyToManyField(Skill)
 
     contact= models.EmailField(verbose_name= 'Contact email', max_length=100, null= False)
+
+    def __str__(self):
+        return '{}'.format(self.firstName)
