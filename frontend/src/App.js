@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/home";
 import Profile from "./pages/profile";
 import Mentors from "./pages/mentors";
-import classNames from "classnames";
 
 export const MentaContext = React.createContext();
 const initialState = {
@@ -59,7 +58,7 @@ function App() {
         state,
         dispatch,
       }}>
-      <main className="bg-stone-800 text-white m-0">
+      <main>
         <div className="App">
           <BrowserRouter>
             <div
@@ -71,29 +70,26 @@ function App() {
                 marginBottom: "30px",
               }}>
               <Link
-                className={classNames(
-                  "center cursor-pointer p-4",
-                  pathName === "/" ? "bg-orange-700 text-white" : "text-stone-400",
-                )}
+                className={
+                  pathName === "/" ? "navbar-item active" : "navbar-item"
+                }
                 to="/"
                 onClick={() => setPathName("/")}>
                 Home
               </Link>
               <Link
-                className={classNames(
-                  "center cursor-pointer p-4",
-                  pathName === "profile" ? "bg-orange-700 text-white" : "text-stone-400",
-                )}
+                className={
+                  pathName === "profile" ? "navbar-item active" : "navbar-item"
+                }
                 to="/profile"
                 onClick={() => setPathName("profile")}>
                 Profile
               </Link>
 
               <Link
-                className={classNames(
-                  "center cursor-pointer p-4",
-                  pathName === "mentors" ? "bg-orange-700 text-white" : "text-stone-400",
-                )}
+                className={
+                  pathName === "mentors" ? "navbar-item active" : "navbar-item"
+                }
                 to="/mentors"
                 onClick={() => setPathName("mentors")}>
                 Mentors
