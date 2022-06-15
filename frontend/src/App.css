@@ -6,7 +6,13 @@
 html {
   margin: 0;
 }
-
+main {
+  margin: 0;
+  background-color: #222121;
+  width: 100%;
+  min-height: 100vh;
+  color: white;
+}
 ul {
   margin: 0;
 }
