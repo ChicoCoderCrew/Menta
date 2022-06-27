@@ -36,8 +36,7 @@ deactivate
 
 ## Frontend
 
-IP: 34.122.108.133
-URL: https://www.menta.dev
+**URL:** https://www.menta.dev
 
 To Deploy:
 
@@ -63,11 +62,10 @@ Ask @Jooms to do the following
 
 ## Backend
 
-TODO(Jooms): Fix backend deployment and record instructions here.
-
-Start with ubuntu 22.04 LTS
-
 ### One-Time
+
+Start with Ubuntu 22.04 LTS
+
 #### Prep Machine
 ```shell
 sudo apt update
