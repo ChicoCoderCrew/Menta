@@ -8,7 +8,16 @@ A Mentor/ Mentee Matchmaking App
 IP: 34.122.108.133
 URL: https://www.menta.dev
 
-To Deploy:
+### Auto Deployment
+
+This is set up to auto deploy from main every other hour.
+
+Cron Job
+```shell
+15 */2 * * * /home/jameskrepelka/auto-deploy.sh
+```
+
+### Manual Deployment
 
 Ask @Jooms to do the following
 
